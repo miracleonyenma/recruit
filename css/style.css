@@ -20,7 +20,29 @@
   height: 300px;
   top: 0;
   left: 0;
-  background: linear-gradient(30deg, #2097e7, #3420e7);
+  background: linear-gradient(30deg, #2771f3, #3420e7);
+}
+
+.page-header svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.page-header svg circle {
+  fill: rgba(232, 240, 254, 0);
+  stroke: #e8f0feff;
+  stroke-width: 2px;
+}
+
+.page-header svg rect {
+  width: 20px;
+  height: 20px;
+  fill: rgba(232, 240, 254, 0);
+  stroke: #e8f0feff;
+  stroke-width: 2px;
 }
 
 form {
@@ -80,7 +102,7 @@ form .form-sect .sect-head h3 {
   top: 50%;
   left: 0;
   font-size: 12px;
-  color: #2097e7;
+  color: #2771f3;
   -webkit-transform: translate(0, -100%);
           transform: translate(0, -100%);
 }
@@ -89,6 +111,10 @@ form .form-sect .sect-head h3 {
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
   width: 100%;
+}
+
+.form-cont input:focus, .form-cont input:valid {
+  border-bottom: 2px solid #e8f0fe;
 }
 
 .form-cont label {
@@ -106,7 +132,7 @@ form .form-sect .sect-head h3 {
   left: 0;
   width: 10%;
   height: 100%;
-  border-bottom: 2px solid #2097e7;
+  border-bottom: 2px solid #2771f3;
   -webkit-transform: translate(-100%, 0);
           transform: translate(-100%, 0);
 }
@@ -142,9 +168,52 @@ form .form-sect .sect-head h3 {
 .buttons button {
   padding: 12px;
   outline: none;
-  background-color: #2097e7;
+  background-color: #2771f3;
   color: #e8f0fe;
   border-radius: 8px;
   border: none;
+}
+
+.blinds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+.controls-cont {
+  position: absolute;
+  width: 120px;
+  height: 35px;
+  border-radius: 32px;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -150%);
+          transform: translate(-50%, -150%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.controls-cont button {
+  width: calc(110px / 2);
+  border: none;
+  background: #2771f3;
+  color: #e8f0fe;
+  outline: none;
+}
+
+.controls-cont button:nth-of-type(1) {
+  border-radius: 32px 0 0 32px;
+}
+
+.controls-cont button:nth-of-type(2) {
+  border-radius: 0 32px 32px 0;
 }
 /*# sourceMappingURL=style.css.map */
