@@ -1,0 +1,126 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "montserrat-regular";
+    transition: 0.32s cubic-bezier(0.03, 0.79, 0.43, 1.5);
+    color: #464d58;
+    &::after, &::before{
+        transition: 0.42s cubic-bezier(0.03, 0.79, 0.43, 1.5); 
+    }
+}
+
+
+form{
+    width: 500px;
+    height: 400px;
+    background: #e8f0fe;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 32px rgba(232, 240, 254, 0.116);
+
+    .form-sect{
+        padding: 2em 2em;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        .sect-head{
+            margin: 1em 0;
+            width: 100%;
+
+            h3{
+                font-weight: 100;
+            }
+        }
+    }
+}
+
+
+.form-cont{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 1em 0;
+    overflow: hidden;
+
+    input{
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        background: transparent;
+        border: none;
+        padding: 34px 0 0 0;
+        font-size: 16px;
+        border-bottom: 2px solid #272730;
+        outline: none;
+        color: #464d58;
+
+        &:focus + label span, &:valid + label span{
+            top: 50%;
+            left: 0;
+            font-size: 12px;
+            color: #2097e7;
+            transform: translate(0, -100%);
+        }
+        &:focus + label::after, &:valid + label::after{
+            transform: translate(0, 0);
+            width: 100%;
+        }
+
+    }
+    label{
+        position: absolute;
+        width:100%;
+        height: 100%;
+        color: #272730;
+        pointer-events: none;
+
+        &::after{
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width:10%;
+            height: 100%;
+            border-bottom: 2px solid #2097e7;
+            transform: translate(-100%, 0);
+        }
+
+        span{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, 0);
+        }
+    }
+}
+
+.title{
+    width: 60px;
+}
+
+.names{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    div{
+        float: left;
+        width: 46%;
+    }
+}
+
+.buttons button{
+    padding: 12px;
+    outline: none;
+    background-color: #2097e7;
+    color: #e8f0fe;
+    border-radius: 8px;
+    border: none;
+}
