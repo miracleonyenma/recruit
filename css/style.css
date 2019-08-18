@@ -14,6 +14,15 @@
   transition: 0.42s cubic-bezier(0.03, 0.79, 0.43, 1.5);
 }
 
+.page-header {
+  width: 100%;
+  position: relative;
+  height: 300px;
+  top: 0;
+  left: 0;
+  background: linear-gradient(30deg, #2097e7, #3420e7);
+}
+
 form {
   width: 500px;
   height: 400px;
