@@ -60,18 +60,33 @@ form {
 }
 
 form .content-wrapper {
+  padding: 0 2em;
   width: 100%;
   position: relative;
   top: 0;
   left: 0;
 }
 
-form .form-sect {
-  padding: 2em 2em;
+form .sect-wrapper {
   position: relative;
-  -webkit-transform: translate(0, 25%);
-          transform: translate(0, 25%);
+  height: var(--h);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form .form-sect {
+  width: 100%;
+  position: relative;
   opacity: 0;
+  -webkit-transition: none;
+  transition: none;
 }
 
 form .form-sect .sect-head {
@@ -186,6 +201,8 @@ form .form-sect .sect-head h3 {
   height: 100%;
   top: 0;
   bottom: 0;
+  -webkit-transition: none;
+  transition: none;
 }
 
 .controls-cont {
