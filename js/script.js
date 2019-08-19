@@ -16,6 +16,7 @@ function resetState(){
 };
 
 function nextStep(){
+
     var nextTl = anime.timeline({
         easing: 'easeOutExpo',
         duration: 750,
@@ -56,8 +57,6 @@ function nextStep(){
     else{
         pos = 0;
     }
-    crntPos = parseInt(window.getComputedStyle(cntwrpr).transform.split(" ")[5].split(")")[0]);
-
 }
 
 function prevStep(){
@@ -82,7 +81,6 @@ function prevStep(){
 
     if(pos > 0){
         displacement = sections[pos].clientHeight;
-        pos--;
         console.log(pos);
         prevTl.add({
             targets: '.content-wrapper',
@@ -94,7 +92,7 @@ function prevStep(){
         });
 
         prevTl.play();
-
+        pos--;
     }
 
     else{
@@ -105,3 +103,6 @@ function prevStep(){
 nextBtn.addEventListener("click", nextStep);
 prevBtn.addEventListener("click", prevStep);
 window.addEventListener("load", resetState);
+cntwrpr.addEventListener("transitionend", function(){
+    crntPos = parseInt(window.getComputedStyle(cntwrpr).transform.split(" ")[5].split(")")[0]);
+});
