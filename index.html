@@ -9,113 +9,138 @@
     <link rel="stylesheet" href="css/fontstyle.css">
 </head>
 <body>
-    <div class="page-header">
-        <svg>
-            <circle r="10" cx="60" cy="80"></circle>
-            <rect x="600" y="200"></rect>
-            <circle r="10" cx="100" cy="300"></circle>
-            <rect x="400" y="100"></rect>
-            <circle r="10" cx="820" cy="20"></circle>
-            <rect x="1200" y="100"></rect>
-            <!-- <poly></poly> -->
-        </svg>
-        <div class="content-cont">
-            <div class="content"></div>
-        </div>
-    </div>
-
-    <form id="form" action="" method="post" autocomplete="off">
-        <div class="content-wrapper">
-
-            <div class="sect-wrapper">
-                <div class="form-sect nom">
-                    <div class="sect-head">
-                        <h3>How do we address you?</h3>
-                    </div>
-                    <div class="form-cont title">
-                        <input type="text" name="title" id="title" required >
-                        <label for="title"><span class="label"> Title </span></label>
-                    </div>
-                    <div class="names">
-        
-                        <div class="form-cont fname">
-                            <input type="text" name="fname" id="fname" required >
-                            <label for="fname"><span class="label"> First Name </span></label>
-                        </div>
-                        <div class="form-cont lname">
-                            <input type="text" name="lname" id="lname" required>
-                            <label for="lname"><span class="label"> Last Name </span></label>
-                        </div>
-        
-        
-                    </div>
-                    <!-- <div class="form-cont buttons"> -->
-                        <!-- <input type="text" name="gender" id="gender" required>
-                        <label for="gender"><span class="label"> Sex </span></label> -->
-                    <!-- </div> -->
+    <div class="main">
+        <div class="page-header">
+                <svg>
+                    <circle r="10" cx="60" cy="80"></circle>
+                    <rect x="600" y="200"></rect>
+                    <circle r="10" cx="100" cy="300"></circle>
+                    <rect x="400" y="100"></rect>
+                    <circle r="10" cx="820" cy="20"></circle>
+                    <rect x="1200" y="100"></rect>
+                    <!-- <poly></poly> -->
+                </svg>
+                <div class="content-cont">
+                    <div class="content"></div>
                 </div>
+        </div>
+            
+        <form id="form" action="" method="post" autocomplete="off">
+            <div class="content-wrapper">
+    
+                <div class="sect-wrapper">
+                    <div class="form-sect nom">
+                        <div class="sect-head">
+                            <h2>How do we address you?</h2>
+                        </div>
+                        <div class="form-cont title">
+                            <input type="text" name="title" id="title" required >
+                            <label class="text" for="title"><span class="label"> Title </span></label>
+                        </div>
+                        <div class="names">
+            
+                            <div class="form-cont fname">
+                                <input type="text" name="fname" id="fname" required >
+                                <label class="text" for="fname"><span class="label"> First Name </span></label>
+                            </div>
+                            <div class="form-cont lname">
+                                <input type="text" name="lname" id="lname" required>
+                                <label class="text" for="lname"><span class="label"> Last Name </span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="sect-wrapper">
+                    <div class="form-sect dept">
+                        <div class="sect-head">
+                                <h2>What's your area of interest?</h2>
+                        </div>
+                        <div class="depts">
+                            <div class="form-cont web">
+                                <input type="radio" name="option"" id="web"  >
+                                <label class="radio" for="web"><span class="rlabel">Web Design and Development</span></label>
+                            </div>
+                            <div class="form-cont web">
+                                <input type="radio" name="option"" id="cs" >
+                                <label class="radio" for="cs"><span class="rlabel">Cyber Security</span></label>
+                            </div>
+                            <div class="form-cont web">
+                                <input type="radio" name="option"" id="ai">
+                                <label class="radio" for="ai"><span class="rlabel">Artificial Intelligence</span></label>
+                            </div>
+                            <div class="form-cont web">
+                                <input type="radio" name="option"" id="Software" >
+                                <label class="radio" for="Software"><span class="rlabel">Software and Development</span></label>
+                            </div>
+    
+                            <div class="form-cont web">
+                                <input type="radio" name="option"" id="graphics" >
+                                <label class="radio" for="graphics"><span class="rlabel">Graphics Design</span></label>
+                            </div>
+                        </div>            
+                    </div>
+                </div>    
+    
+                <div class="sect-wrapper">
+                    <div class="form-sect level">
+                        <div class="sect-head">
+                                <h2>What's your level?</h2>
+                        </div>
+    
+                        <div class="form-cont levels">
+                            <div>
+                                <input type="radio" name="options" id="b">
+                                <label class="lradio" for="b"> <span> Beginner</span></label>
+                                <input type="radio" name="options" id="i">
+                                <label class="lradio" for="i"> <span>Intermediate</span></label>
+                                <input type="radio" name="options" id="e">
+                                <label class="lradio" for="e"> <span>Expert</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="sect-wrapper">
+                    <div class="form-sect workinfo">
+                        <div class="sect-head">
+                            <h2>Let's know more about you?</h2>
+                        </div>
+                        <div class="infos">
+            
+                            <div class="form-cont prev-work">
+                                <input type="text" name="work" id="work" required >
+                                <label class="text" for="work"><span class="label">Previously worked at</span></label>
+                            </div>
+                            <div class="form-cont prog-lang">
+                                <input list="Languages" type="text" name="lang" id="lang" required>
+                                <label class="text" for="lang"><span class="label">Main programming language</span></label>
+                                <datalist id="Languages">
+                                    <option value="JS">JavaScript</option>
+                                    <option value="Python">Python</option>
+                                    <option value="C++">C++</option>
+                                    <option value="C#">C#</option>
+                                </datalist>
+                            </div>
+                            <div class="form-cont hobby">
+                                <input type="text" name="hobby" id="hobby" required>
+                                <label class="text" for="hobby"><span class="label">Hobby</span></label>
+                            </div>
+                        </div>
+                    </div>   
+                </div>  
+    
             </div>
-
-            <div class="sect-wrapper">
-                <div class="form-sect dept">
-                    <div class="sect-head">
-                            <h3>What's your area of interest?</h3>
-                    </div>
-                    <div class="depts">
-                        <div class="form-cont web">
-                            <input type="radio" name="web" id="web" required >
-                            <label for="web"><span class="rlabel">Web Design</span></label>
-                        </div>
-                        <div class="form-cont web">
-                            <input type="radio" name="web" id="web" required >
-                            <label for="web"><span class="rlabel">Web Design</span></label>
-                        </div>
-                        <div class="form-cont web">
-                            <input type="radio" name="web" id="web" required >
-                            <label for="web"><span class="rlabel">Web Design</span></label>
-                        </div>
-                        <div class="form-cont web">
-                            <input type="radio" name="web" id="web" required >
-                            <label for="web"><span class="rlabel">Web Design</span></label>
-                        </div>
-                    </div>            
-                </div>
-            </div>    
-
-            <div class="sect-wrapper">
-                <div class="form-sect dept">
-                    <div class="sect-head">
-                        <h3>What's your area of interest?</h3>
-                    </div>
-                    <div class="form-cont title">
-                        <input type="text" name="title" id="title" required >
-                        <label for="title"><span class="label"> Title </span></label>
-                    </div>
-                    <div class="names">
-        
-                        <div class="form-cont fname">
-                            <input type="text" name="fname" id="fname" required >
-                            <label for="fname"><span class="label"> First Name </span></label>
-                        </div>
-                        <div class="form-cont lname">
-                            <input type="text" name="lname" id="lname" required>
-                            <label for="lname"><span class="label"> Last Name </span></label>
-                        </div>
-                    </div>
-                    <!-- <div class="form-cont buttons"> -->
-                        <!-- <input type="text" name="gender" id="gender" required>
-                        <label for="gender"><span class="label"> Sex </span></label> -->
-                    <!-- </div> -->
-                </div>   
-            </div>  
-
-        </div>
-        <div class="blinds"></div>
-        <div class="controls-cont">
-            <button id="prev">prev</button>
-            <button id="next">next</button>
-        </div>
-    </form>
+            <div class="blinds"></div>
+            <div class="controls-cont">
+                <button type="button" id="prev">prev</button>
+                <button type="button" id="next">next</button>
+            </div>
+            <div class="controls-cont submit">
+                    <input id="submit-btn" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
 
     <script src="./js/anime.min.js"></script>
     <script src="js/script.js"></script>

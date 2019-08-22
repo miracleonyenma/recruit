@@ -14,6 +14,12 @@
   transition: 0.42s cubic-bezier(0.03, 0.79, 0.43, 1.5);
 }
 
+.main {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .page-header {
   width: 100%;
   position: relative;
@@ -94,7 +100,7 @@ form .form-sect .sect-head {
   width: 100%;
 }
 
-form .form-sect .sect-head h3 {
+form .form-sect .sect-head h2 {
   font-weight: 100;
 }
 
@@ -106,20 +112,20 @@ form .form-sect .sect-head h3 {
   overflow: hidden;
 }
 
-.form-cont input {
+.form-cont input[type="text"] {
   position: absolute;
   width: 100%;
   height: 50px;
   background: transparent;
   border: none;
-  padding: 34px 0 0 0;
+  padding: 34px 0 6px 0;
   font-size: 16px;
   border-bottom: 2px solid #272730;
   outline: none;
   color: #464d58;
 }
 
-.form-cont input:focus + label span, .form-cont input:valid + label span {
+.form-cont input[type="text"]:focus + label span, .form-cont input[type="text"]:valid + label span {
   top: 50%;
   left: 0;
   font-size: 12px;
@@ -128,17 +134,17 @@ form .form-sect .sect-head h3 {
           transform: translate(0, -100%);
 }
 
-.form-cont input:focus + label::after, .form-cont input:valid + label::after {
+.form-cont input[type="text"]:focus + label::after, .form-cont input[type="text"]:valid + label::after {
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
   width: 100%;
 }
 
-.form-cont input:focus, .form-cont input:valid {
+.form-cont input[type="text"]:focus, .form-cont input[type="text"]:valid {
   border-bottom: 2px solid #e8f0fe;
 }
 
-.form-cont label {
+.form-cont label.text {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -146,7 +152,7 @@ form .form-sect .sect-head h3 {
   pointer-events: none;
 }
 
-.form-cont label::after {
+.form-cont label.text::after {
   content: "";
   position: absolute;
   top: -2px;
@@ -158,12 +164,125 @@ form .form-sect .sect-head h3 {
           transform: translate(-100%, 0);
 }
 
-.form-cont label span {
+.form-cont label.text span {
   position: absolute;
   top: 50%;
   left: 0;
   -webkit-transform: translate(0, 0);
           transform: translate(0, 0);
+}
+
+.form-cont input[type="radio"] {
+  display: none;
+}
+
+.form-cont .radio {
+  width: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-cont .radio span {
+  margin: 1em 0 1em 4em;
+}
+
+.form-cont .radio:before {
+  content: "";
+  top: 50%;
+  left: 2em;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #2771f3;
+  position: absolute;
+}
+
+.form-cont .radio:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 2em;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2771f3;
+  opacity: 0;
+}
+
+.form-cont :checked + .radio:after {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.form-cont.levels {
+  overflow: visible;
+}
+
+.form-cont.levels div {
+  height: 100%;
+  background: #dae7ff;
+  border-radius: 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.form-cont .lradio {
+  margin: 0 2em;
+  position: relative;
+}
+
+.form-cont .lradio span {
+  display: block;
+  padding: 4em 0 0 0;
+  position: relative;
+}
+
+.form-cont .lradio:before {
+  content: "";
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #2771f3;
+  position: absolute;
+}
+
+.form-cont .lradio:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2771f3;
+  opacity: 0;
+}
+
+.form-cont :checked + .lradio:after {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.form-cont :checked + .lradio span {
+  color: #2771f3;
 }
 
 .title {
@@ -203,15 +322,17 @@ form .form-sect .sect-head h3 {
   bottom: 0;
   -webkit-transition: none;
   transition: none;
+  pointer-events: none;
 }
 
 .controls-cont {
   position: absolute;
-  width: 120px;
+  width: 100px;
   height: 35px;
+  background: #2771f3;
   border-radius: 32px;
   top: 100%;
-  left: 50%;
+  left: 100%;
   -webkit-transform: translate(-50%, -150%);
           transform: translate(-50%, -150%);
   display: -webkit-box;
@@ -225,9 +346,9 @@ form .form-sect .sect-head h3 {
 }
 
 .controls-cont button {
-  width: calc(110px / 2);
+  width: calc(100px / 2);
   border: none;
-  background: #2771f3;
+  background: transparent;
   color: #e8f0fe;
   outline: none;
 }
@@ -238,5 +359,24 @@ form .form-sect .sect-head h3 {
 
 .controls-cont button:nth-of-type(2) {
   border-radius: 0 32px 32px 0;
+}
+
+.controls-cont.submit {
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 20px);
+          transform: translate(-50%, 20px);
+  -webkit-transition: none;
+  transition: none;
+  opacity: 0;
+}
+
+.controls-cont.submit input {
+  width: 100px;
+  border: none;
+  border-radius: 3em;
+  background: #2771f3;
+  color: #e8f0fe;
+  outline: none;
 }
 /*# sourceMappingURL=style.css.map */
