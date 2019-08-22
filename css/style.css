@@ -65,6 +65,13 @@ form {
           box-shadow: 0 0 32px rgba(232, 240, 254, 0.116);
 }
 
+form .form {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
 form .content-wrapper {
   padding: 0 2em;
   width: 100%;
@@ -176,9 +183,13 @@ form .form-sect .sect-head h2 {
   display: none;
 }
 
-.form-cont .radio {
+.form-cont.dept-options {
+  height: 100%;
+}
+
+.form-cont label.radio {
   width: 100%;
-  position: absolute;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -187,11 +198,11 @@ form .form-sect .sect-head h2 {
           align-items: center;
 }
 
-.form-cont .radio span {
+.form-cont label.radio span {
   margin: 1em 0 1em 4em;
 }
 
-.form-cont .radio:before {
+.form-cont label.radio:before {
   content: "";
   top: 50%;
   left: 2em;
@@ -204,7 +215,7 @@ form .form-sect .sect-head h2 {
   position: absolute;
 }
 
-.form-cont .radio:after {
+.form-cont label.radio:after {
   content: "";
   position: absolute;
   top: 50%;
@@ -378,5 +389,25 @@ form .form-sect .sect-head h2 {
   background: #2771f3;
   color: #e8f0fe;
   outline: none;
+}
+
+.section-indicator {
+  width: 30px;
+  min-height: 60px;
+  background: #dae7ff;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  border-radius: 32px;
+}
+
+.section-indicator .indicator {
+  width: 20px;
+  height: 20px;
+  background: #ebf2ff;
+  border-radius: 10px;
+  margin: 6px auto;
 }
 /*# sourceMappingURL=style.css.map */

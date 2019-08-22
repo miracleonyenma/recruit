@@ -1,8 +1,10 @@
 var sections = document.querySelectorAll(".sect-wrapper"),
+    submitBtn = document.querySelector("#submit-btn"),
     prevBtn = document.querySelector("#prev"),
     nextBtn = document.querySelector("#next"),
     cntwrpr = document.querySelector(".content-wrapper"),
     form = document.querySelector("#form"),
+    indicator_cont = document.querySelector("#sect-ind"),
     styles = document.documentElement.style, 
     // submitTl = submitTl2 = anime.timeline({
     //     targets: '.controls-cont.submit',
@@ -15,7 +17,8 @@ var sections = document.querySelectorAll(".sect-wrapper"),
     pos = 0,
     count = sections.length,
     i = 0,
-    displacement;
+    displacement,
+    obj = [];
 
 function getSetContHeight(){
     formHeight = window.getComputedStyle(form).height;
@@ -30,6 +33,18 @@ function resetState(){
     });
 
     getSetContHeight();
+};
+
+function setIndicators(){
+    indicator_cont.innerHTML = "";
+    for(i = 0; i < sections.length; i++){
+        var indicator = document.createElement("div");
+        indicator_cont.appendChild(indicator);
+        indicator_cont.children[i].setAttribute("id", "i"+i);
+        indicator_cont.children[i].setAttribute("class", "indicator");
+    
+    };
+    console.log("hey");
 };
 
 function nextStep(){
@@ -107,23 +122,29 @@ function prevStep(){
     // })
 
     if(pos > 0){
+        //disable futher clicks
+        prevBtn.disabled = true;
+
         displacement = sections[pos].clientHeight;
-        console.log(pos);
-        pos--;
         prevTl.add({
             targets: '.content-wrapper',
             translateY: crntPos + (displacement) + 'px'
         });
         prevTl.add({
-            targets: sections[pos].children[0],
+            targets: sections[pos - 1].children[0],
             opacity: 1
         }, "-=400");
         prevTl.add({
-            targets: sections[pos + 1].children[0],
+            targets: sections[pos].children[0],
             opacity: 0
         },"-=700");
-
+        cntwrpr.addEventListener("transitionend", function(){
+        prevBtn.disabled = false;
+        });
         prevTl.play();
+        pos--;
+        console.log(pos);
+
     }
 
     else{
@@ -138,13 +159,18 @@ function prevStep(){
             opacity: 0,
             top: "100%"
         });
-    }
+    };
+};
 
-}
+function submitAction(){
+    
+};
 
 nextBtn.addEventListener("click", nextStep);
 prevBtn.addEventListener("click", prevStep);
+submitBtn.addEventListener("click", submitAction);
 window.addEventListener("load", resetState);
+window.addEventListener("load", setIndicators);
 cntwrpr.addEventListener("transitionend", function(){
     crntPos = parseInt(window.getComputedStyle(cntwrpr).transform.split(" ")[5].split(")")[0]);
     //     anime({

@@ -59,6 +59,13 @@ form{
     transform: translate(-50%, -50%);
     box-shadow: 0 0 32px rgba(232, 240, 254, 0.116);
 
+    .form{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
     .content-wrapper{
         padding: 0 2em;
         width: 100%;
@@ -160,9 +167,14 @@ form{
         display: none;    
     }
 
-    .radio{
+    // department section
+    &.dept-options {
+        height: 100%;
+    }
+    
+    label.radio{
         width: 100%;
-        position: absolute;
+        position: relative;
         display: flex;
         align-items: center;
         // justify-content: space-between;
@@ -344,3 +356,21 @@ form{
     }
 }
 
+.section-indicator{
+    width: 30px;
+    min-height: 60px;
+    background: #dae7ff;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(50%, -50%);
+    border-radius: 32px;
+
+    .indicator{
+        width: 20px;
+        height: 20px;
+        background: #ebf2ff;
+        border-radius: 10px;
+        margin: 6px auto;
+    }
+}
