@@ -4,7 +4,7 @@
     box-sizing: border-box;
     font-family: "montserrat-regular";
     transition: 0.32s cubic-bezier(0.03, 0.79, 0.43, 1.5);
-    color: #464d58;
+    color: #5e697b;
     &::after, &::before{
         transition: 0.42s cubic-bezier(0.03, 0.79, 0.43, 1.5); 
     }
@@ -35,6 +35,7 @@
             fill: rgba(232, 240, 254, 0);
             stroke: #e8f0feff;
             stroke-width: 2px;
+            animation: rotate 10s infinite cubic-bezier(0.075, 0.82, 0.165, 1) alternate;
         }
 
         rect{
@@ -43,21 +44,39 @@
             fill: rgba(232, 240, 254, 0);
             stroke: #e8f0feff;
             stroke-width: 2px;
+            animation: rotate 10s infinite cubic-bezier(0.075, 0.82, 0.165, 1) 2s alternate;
+
         }
     }
 }
 
+@keyframes rotate{
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+  
+
+// #particles-js{
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+// }
 
 form{
     width: 500px;
     height: 400px;
     background: #e8f0fe;
+    border-radius: 2%;
     margin: auto;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 32px rgba(232, 240, 254, 0.116);
+    box-shadow: 0 0 52px rgba(139, 152, 244, 0.23);
 
     .form{
         height: 100%;
@@ -72,6 +91,7 @@ form{
         position: relative;
         top: 0;
         left: 0;
+        transform: translateY(var(--pos));
 
     }
     .sect-wrapper{
@@ -118,9 +138,9 @@ form{
         border: none;
         padding: 34px 0 6px 0;
         font-size: 16px;
-        border-bottom: 2px solid #272730;
+        border-bottom: 2px solid #5e697b;
         outline: none;
-        color: #464d58;
+        color: #5e697b;
 
         &:focus + label span, &:valid + label span{
             top: 50%;
@@ -141,7 +161,7 @@ form{
         position: absolute;
         width:100%;
         height: 100%;
-        color: #272730;
+        color: #5e697b;
         pointer-events: none;
 
         &::after{
@@ -223,10 +243,11 @@ form{
         background: #dae7ff;
         border-radius: 3em; 
         display: flex;
+        justify-content: space-evenly;
     }
 
     .lradio{
-        margin: 0 2em;
+        margin: 0;
         position: relative;
 
         span{
@@ -328,6 +349,7 @@ form{
         background: transparent;
         color: #e8f0fe;
         outline: none;
+        position: relative;
 
         &:nth-of-type(1){
             border-radius: 32px 0 0 32px;
@@ -335,6 +357,42 @@ form{
 
         &:nth-of-type(2){
             border-radius: 0 32px 32px 0;
+        }
+
+        svg{
+            width: 100%;
+            height: 35px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+
+            &.prev{
+                transform:translate(-50%, -50%) scale(0.7) rotateY(180deg);
+            }
+
+            &.next{
+                transform:translate(-50%, -50%) scale(0.7) rotateY(0deg);
+            }
+
+
+            polyline{
+                transform: scale(3);
+                fill: none;
+                stroke-linejoin: round;
+                stroke-linecap: round;
+                stroke: #dae7ff;
+
+            }
+
+        }
+
+        &:active svg.prev{
+            transform: translate(-50%, -50%) scale(0.6) rotateY(180deg);
+        }
+
+        &:active svg.next{
+            transform: translate(-50%, -50%) scale(0.6) rotateY(0deg);
         }
     }
 
@@ -369,8 +427,15 @@ form{
     .indicator{
         width: 20px;
         height: 20px;
-        background: #ebf2ff;
+        background: #2771f3;
+        opacity: 0.1;
         border-radius: 10px;
         margin: 6px auto;
+        display: block;
+        border: none;
+
+        &:hover{
+            opacity: 0.3!important;
+        }
     }
 }

@@ -11,6 +11,7 @@
 <body>
     <div class="main">
         <div class="page-header">
+            <!-- <div id="particles-js"></div> -->
                 <svg>
                     <circle r="10" cx="60" cy="80"></circle>
                     <rect x="600" y="200"></rect>
@@ -60,7 +61,7 @@
                             <div class="depts">
                                 <div class="form-cont dept-options">
     
-                                    <iniput type="radio" name="options" id="web"  >
+                                    <input type="radio" name="options" id="web"  >
                                     <label class="radio" for="web"><span class="rlabel">Web Design and Development</span></label>
                                     
                                     <input type="radio" name="options" id="cs" >
@@ -136,8 +137,12 @@
             </div>
             <div class="blinds"></div>
             <div class="controls-cont">
-                <button type="button" id="prev">prev</button>
-                <button type="button" id="next">next</button>
+                <button type="button" id="prev">
+                    <svg class=" prev"><polyline class="polyline" points="3 5.7, 12 5.7, 8.5 2.2, 8.5 2.2, 12 5.7, 8.5 9.5"></polyline></svg>
+                </button>
+                <button type="button" id="next">
+                    <svg class="next"><polyline class="polyline" points="3 5.7, 12 5.7, 8.5 2.2, 8.5 2.2, 12 5.7, 8.5 9.5"></polyline></svg>
+                </button>
             </div>
             <div class="controls-cont submit">
                     <input id="submit-btn" type="submit" value="Submit">
@@ -149,6 +154,7 @@
 
     </div>
 
+    <script src="js/lib/particles.min.js"></script>
     <script src="./js/anime.min.js"></script>
     <script src="js/script.js"></script>
 <!--

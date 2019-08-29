@@ -12,11 +12,12 @@ var sections = document.querySelectorAll(".sect-wrapper"),
     //     duration: 800,
     //     autoplay: false
     // }),
+    toPosition,
+    indTl,
     formHeight,
     crntPos,
     pos = 0,
     count = sections.length,
-    i = 0,
     displacement,
     obj = [];
 
@@ -29,22 +30,77 @@ function getSetContHeight(){
 function resetState(){
     anime({
         targets: sections[0].children[0],
+        easing: 'easeOutExpo',
+        duration: 800,
         opacity: 1
     });
-
     getSetContHeight();
 };
 
 function setIndicators(){
-    indicator_cont.innerHTML = "";
-    for(i = 0; i < sections.length; i++){
-        var indicator = document.createElement("div");
+    for(let i = 0; i < sections.length; i++){
+        var indicator = document.createElement("button");
         indicator_cont.appendChild(indicator);
         indicator_cont.children[i].setAttribute("id", "i"+i);
         indicator_cont.children[i].setAttribute("class", "indicator");
-    
     };
-    console.log("hey");
+    //set the first indicator to active
+    anime({
+        easing: 'easeOutExpo',
+        duration: 800,
+        targets: indicator_cont.children[pos],
+        opacity: 0.5
+    });    
+};
+
+function indicators(){
+
+    for( let i = 0; i < sections.length + 1; i++){
+        indicator_cont.children[i].addEventListener("click", function(){
+
+            toPosition = -sections[i].clientHeight * i;
+            pos = i;
+            console.log(pos);
+            // styles.setProperty("--pos", toPosition + 'px');
+            // sections[i].children[0].style.opacity = 1;
+            console.log(toPosition);
+            var indAnim =  anime.timeline({
+                easing: 'easeOutExpo',
+                duration: 800,
+                autoplay: false
+            });
+            //reset indicators to defaultKT
+            indAnim.add({
+                targets: indicator_cont.children,
+                opacity: 0.1
+            });
+            indAnim.add({
+                targets: '.content-wrapper',
+                translateY: toPosition + "px"
+            });
+            indAnim.add({
+                targets: sections[i].children[0],
+                opacity: 1
+            });
+            if(sections[i - 1] >= 0){
+                indAnim.add({
+                    targets: sections[i - 1].children[0],
+                    opacity: 0
+                });    
+            }
+
+            else if(sections[i + 1] <= sections.length){
+                indAnim.add({
+                    targets: sections[i + 1].children[0],
+                    opacity: 0
+                });
+            }
+
+            indAnim.play();
+            console.log("now " + toPosition);
+
+        });
+    };  
 };
 
 function nextStep(){
@@ -180,4 +236,7 @@ cntwrpr.addEventListener("transitionend", function(){
     //     scaleY: 1,
     //     translateY: 0
     // });
+
 });
+window.addEventListener("load", indicators);
+

@@ -6,7 +6,7 @@
   font-family: "montserrat-regular";
   -webkit-transition: 0.32s cubic-bezier(0.03, 0.79, 0.43, 1.5);
   transition: 0.32s cubic-bezier(0.03, 0.79, 0.43, 1.5);
-  color: #464d58;
+  color: #5e697b;
 }
 
 *::after, *::before {
@@ -41,6 +41,8 @@
   fill: rgba(232, 240, 254, 0);
   stroke: #e8f0feff;
   stroke-width: 2px;
+  -webkit-animation: rotate 10s infinite cubic-bezier(0.075, 0.82, 0.165, 1) alternate;
+          animation: rotate 10s infinite cubic-bezier(0.075, 0.82, 0.165, 1) alternate;
 }
 
 .page-header svg rect {
@@ -49,20 +51,45 @@
   fill: rgba(232, 240, 254, 0);
   stroke: #e8f0feff;
   stroke-width: 2px;
+  -webkit-animation: rotate 10s infinite cubic-bezier(0.075, 0.82, 0.165, 1) 2s alternate;
+          animation: rotate 10s infinite cubic-bezier(0.075, 0.82, 0.165, 1) 2s alternate;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 form {
   width: 500px;
   height: 400px;
   background: #e8f0fe;
+  border-radius: 2%;
   margin: auto;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  -webkit-box-shadow: 0 0 32px rgba(232, 240, 254, 0.116);
-          box-shadow: 0 0 32px rgba(232, 240, 254, 0.116);
+  -webkit-box-shadow: 0 0 52px rgba(139, 152, 244, 0.23);
+          box-shadow: 0 0 52px rgba(139, 152, 244, 0.23);
 }
 
 form .form {
@@ -78,6 +105,8 @@ form .content-wrapper {
   position: relative;
   top: 0;
   left: 0;
+  -webkit-transform: translateY(var(--pos));
+          transform: translateY(var(--pos));
 }
 
 form .sect-wrapper {
@@ -127,9 +156,9 @@ form .form-sect .sect-head h2 {
   border: none;
   padding: 34px 0 6px 0;
   font-size: 16px;
-  border-bottom: 2px solid #272730;
+  border-bottom: 2px solid #5e697b;
   outline: none;
-  color: #464d58;
+  color: #5e697b;
 }
 
 .form-cont input[type="text"]:focus + label span, .form-cont input[type="text"]:valid + label span {
@@ -155,7 +184,7 @@ form .form-sect .sect-head h2 {
   position: absolute;
   width: 100%;
   height: 100%;
-  color: #272730;
+  color: #5e697b;
   pointer-events: none;
 }
 
@@ -246,10 +275,13 @@ form .form-sect .sect-head h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .form-cont .lradio {
-  margin: 0 2em;
+  margin: 0;
   position: relative;
 }
 
@@ -362,6 +394,7 @@ form .form-sect .sect-head h2 {
   background: transparent;
   color: #e8f0fe;
   outline: none;
+  position: relative;
 }
 
 .controls-cont button:nth-of-type(1) {
@@ -370,6 +403,45 @@ form .form-sect .sect-head h2 {
 
 .controls-cont button:nth-of-type(2) {
   border-radius: 0 32px 32px 0;
+}
+
+.controls-cont button svg {
+  width: 100%;
+  height: 35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0.8);
+          transform: translate(-50%, -50%) scale(0.8);
+}
+
+.controls-cont button svg.prev {
+  -webkit-transform: translate(-50%, -50%) scale(0.7) rotateY(180deg);
+          transform: translate(-50%, -50%) scale(0.7) rotateY(180deg);
+}
+
+.controls-cont button svg.next {
+  -webkit-transform: translate(-50%, -50%) scale(0.7) rotateY(0deg);
+          transform: translate(-50%, -50%) scale(0.7) rotateY(0deg);
+}
+
+.controls-cont button svg polyline {
+  -webkit-transform: scale(3);
+          transform: scale(3);
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke: #dae7ff;
+}
+
+.controls-cont button:active svg.prev {
+  -webkit-transform: translate(-50%, -50%) scale(0.6) rotateY(180deg);
+          transform: translate(-50%, -50%) scale(0.6) rotateY(180deg);
+}
+
+.controls-cont button:active svg.next {
+  -webkit-transform: translate(-50%, -50%) scale(0.6) rotateY(0deg);
+          transform: translate(-50%, -50%) scale(0.6) rotateY(0deg);
 }
 
 .controls-cont.submit {
@@ -406,8 +478,15 @@ form .form-sect .sect-head h2 {
 .section-indicator .indicator {
   width: 20px;
   height: 20px;
-  background: #ebf2ff;
+  background: #2771f3;
+  opacity: 0.1;
   border-radius: 10px;
   margin: 6px auto;
+  display: block;
+  border: none;
+}
+
+.section-indicator .indicator:hover {
+  opacity: 0.3 !important;
 }
 /*# sourceMappingURL=style.css.map */
