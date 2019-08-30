@@ -92,6 +92,12 @@ form {
           box-shadow: 0 0 52px rgba(139, 152, 244, 0.23);
 }
 
+@media and screen (max-width: 600px){
+  form{
+    width: 85%;
+  }
+}
+
 form .form {
   height: 100%;
   width: 100%;
