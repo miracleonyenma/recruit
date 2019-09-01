@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-size: 11px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "montserrat-regular";
@@ -79,7 +80,7 @@
 
 form {
   width: 500px;
-  height: 400px;
+  height: 80%;
   background: #e8f0fe;
   border-radius: 2%;
   margin: auto;
@@ -92,9 +93,12 @@ form {
           box-shadow: 0 0 52px rgba(139, 152, 244, 0.23);
 }
 
-@media only screen and(max-width: 600px){
+@media only screen and(min-width: 600px){
+  *{
+    font-size: 14px;
+  }
   form{
-    width: 85%;
+    width: 400px;
   }
 }
 
