@@ -19,7 +19,7 @@
 .page-header{
     width: 100%;
     position: relative;
-    height: 300px;
+    height: 45%;
     top: 0;
     left: 0;
     background: linear-gradient(30deg, #2771f3,#3420e7);
@@ -67,8 +67,8 @@
 // }
 
 form{
-    width: 500px;
-    height: 400px;
+    width: 80%;
+    height: 80%;
     background: #e8f0fe;
     border-radius: 2%;
     margin: auto;
@@ -122,6 +122,14 @@ form{
         }
     }
 }
+
+@media screen and (min-width: 600px){
+    form{
+        width: 500px;
+        height: 400px;
+    }
+}
+
 
 .form-cont{
     position: relative;
@@ -331,20 +339,20 @@ form{
 
 .controls-cont{
     position: absolute;
-    width: 100px;
+    width: 80px;
     height: 35px;
     background: #2771f3;
     border-radius: 32px; 
     top: 100%;
     left: 100%;
-    transform: translate(-50%, -150%);
+    transform: translate(-75%, -150%);
     // background: rgba(39, 39, 47, 0.5);
     display: flex;
     justify-content: space-between;
     align-content: center;
 
     button{
-        width: calc(100px / 2);
+        width: calc(80px / 2);
         border: none;
         background: transparent;
         color: #e8f0fe;
@@ -368,11 +376,11 @@ form{
             transform: translate(-50%, -50%) scale(0.8);
 
             &.prev{
-                transform:translate(-50%, -50%) scale(0.7) rotateY(180deg);
+                transform:translate(-45%, -50%) scale(0.7) rotateY(180deg);
             }
 
             &.next{
-                transform:translate(-50%, -50%) scale(0.7) rotateY(0deg);
+                transform:translate(-55%, -50%) scale(0.7) rotateY(0deg);
             }
 
 
@@ -414,14 +422,35 @@ form{
     }
 }
 
+//bigger screens
+@media screen and (min-width: 600px){
+    .controls-cont{
+        width: 100px;
+        transform: translate(-50%, -150%);
+
+        button{
+            width: calc(100px / 2) ;
+
+            svg.prev{
+                transform:translate(-50%, -50%) scale(0.7) rotateY(180deg) ;
+            }
+            svg.next{
+                transform:translate(-50%, -50%) scale(0.7) rotateY(0deg) ;
+            }
+        }
+    }
+}
+
+
+
 .section-indicator{
     width: 30px;
     min-height: 60px;
     background: #dae7ff;
     position: absolute;
-    top: 50%;
-    left: 100%;
-    transform: translate(50%, -50%);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -80%) rotateZ(-90deg);
     border-radius: 32px;
 
     .indicator{
@@ -439,3 +468,12 @@ form{
         }
     }
 }
+
+@media screen and (min-width: 600px){
+    .section-indicator{
+        top: 50%;
+        left: 100%;
+        transform: translate(50%, -50%);    
+    }
+}
+
