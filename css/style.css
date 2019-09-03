@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-size: 11px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "montserrat-regular";
@@ -78,7 +79,9 @@
 }
 
 form {
+
   width: 80%;
+
   height: 80%;
   background: #e8f0fe;
   border-radius: 2%;
@@ -90,6 +93,15 @@ form {
           transform: translate(-50%, -50%);
   -webkit-box-shadow: 0 0 52px rgba(139, 152, 244, 0.23);
           box-shadow: 0 0 52px rgba(139, 152, 244, 0.23);
+}
+
+@media only screen and(min-width: 600px){
+  *{
+    font-size: 14px;
+  }
+  form{
+    width: 400px;
+  }
 }
 
 form .form {
@@ -516,6 +528,7 @@ form .form-sect .sect-head h2 {
   opacity: 0.3 !important;
 }
 
+
 @media screen and (min-width: 600px) {
   .section-indicator {
     top: 50%;
@@ -525,3 +538,4 @@ form .form-sect .sect-head h2 {
   }
 }
 /*# sourceMappingURL=style.css.map */
+
