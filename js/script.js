@@ -19,6 +19,7 @@ var sections = document.querySelectorAll(".sect-wrapper"),
     pos = 0,
     count = sections.length,
     displacement,
+    x,
     obj = [];
 
 function getSetContHeight(){
@@ -34,8 +35,23 @@ function resetState(){
         duration: 800,
         opacity: 1
     });
+    //
     getSetContHeight();
 };
+
+// function mediaQuery(x){
+//     if (x.matches){
+//         getSetContHeight();
+//     }
+//     else{
+//         getSetContHeight();
+//     }
+// }
+
+// x = window.matchMedia("(max-width: 600px)");
+
+// mediaQuery(x);
+// x.addEventListener(mediaQuery);
 
 function setIndicators(){
     for(let i = 0; i < sections.length; i++){
@@ -222,6 +238,13 @@ function submitAction(){
     
 };
 
+function setCookie(name, value, expiry){
+    var d = new Date();
+    d.setTime(d.getTime() + (expiry*24*60*60*1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";" + "path=/";
+};
+
 nextBtn.addEventListener("click", nextStep);
 prevBtn.addEventListener("click", prevStep);
 submitBtn.addEventListener("click", submitAction);
@@ -240,3 +263,7 @@ cntwrpr.addEventListener("transitionend", function(){
 });
 window.addEventListener("load", indicators);
 
+//create cookie
+window.addEventListener("load", function(){
+    setCookie("name", "visitor", 20);
+});
