@@ -1,7 +1,6 @@
 * {
   padding: 0;
   margin: 0;
-  font-size: 11px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "montserrat-regular";
@@ -24,7 +23,7 @@
 .page-header {
   width: 100%;
   position: relative;
-  height: 300px;
+  height: 45%;
   top: 0;
   left: 0;
   background: linear-gradient(30deg, #2771f3, #3420e7);
@@ -79,7 +78,7 @@
 }
 
 form {
-  width: 500px;
+  width: 80%;
   height: 80%;
   background: #e8f0fe;
   border-radius: 2%;
@@ -91,15 +90,6 @@ form {
           transform: translate(-50%, -50%);
   -webkit-box-shadow: 0 0 52px rgba(139, 152, 244, 0.23);
           box-shadow: 0 0 52px rgba(139, 152, 244, 0.23);
-}
-
-@media only screen and(min-width: 600px){
-  *{
-    font-size: 14px;
-  }
-  form{
-    width: 400px;
-  }
 }
 
 form .form {
@@ -148,6 +138,13 @@ form .form-sect .sect-head {
 
 form .form-sect .sect-head h2 {
   font-weight: 100;
+}
+
+@media screen and (min-width: 600px) {
+  form {
+    width: 500px;
+    height: 400px;
+  }
 }
 
 .form-cont {
@@ -380,14 +377,14 @@ form .form-sect .sect-head h2 {
 
 .controls-cont {
   position: absolute;
-  width: 100px;
+  width: 80px;
   height: 35px;
   background: #2771f3;
   border-radius: 32px;
   top: 100%;
   left: 100%;
-  -webkit-transform: translate(-50%, -150%);
-          transform: translate(-50%, -150%);
+  -webkit-transform: translate(-75%, -150%);
+          transform: translate(-75%, -150%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -399,7 +396,7 @@ form .form-sect .sect-head h2 {
 }
 
 .controls-cont button {
-  width: calc(100px / 2);
+  width: calc(80px / 2);
   border: none;
   background: transparent;
   color: #e8f0fe;
@@ -426,13 +423,13 @@ form .form-sect .sect-head h2 {
 }
 
 .controls-cont button svg.prev {
-  -webkit-transform: translate(-50%, -50%) scale(0.7) rotateY(180deg);
-          transform: translate(-50%, -50%) scale(0.7) rotateY(180deg);
+  -webkit-transform: translate(-45%, -50%) scale(0.7) rotateY(180deg);
+          transform: translate(-45%, -50%) scale(0.7) rotateY(180deg);
 }
 
 .controls-cont button svg.next {
-  -webkit-transform: translate(-50%, -50%) scale(0.7) rotateY(0deg);
-          transform: translate(-50%, -50%) scale(0.7) rotateY(0deg);
+  -webkit-transform: translate(-55%, -50%) scale(0.7) rotateY(0deg);
+          transform: translate(-55%, -50%) scale(0.7) rotateY(0deg);
 }
 
 .controls-cont button svg polyline {
@@ -473,15 +470,34 @@ form .form-sect .sect-head h2 {
   outline: none;
 }
 
+@media screen and (min-width: 600px) {
+  .controls-cont {
+    width: 100px;
+    -webkit-transform: translate(-50%, -150%);
+            transform: translate(-50%, -150%);
+  }
+  .controls-cont button {
+    width: calc(100px / 2);
+  }
+  .controls-cont button svg.prev {
+    -webkit-transform: translate(-50%, -50%) scale(0.7) rotateY(180deg);
+            transform: translate(-50%, -50%) scale(0.7) rotateY(180deg);
+  }
+  .controls-cont button svg.next {
+    -webkit-transform: translate(-50%, -50%) scale(0.7) rotateY(0deg);
+            transform: translate(-50%, -50%) scale(0.7) rotateY(0deg);
+  }
+}
+
 .section-indicator {
   width: 30px;
   min-height: 60px;
   background: #dae7ff;
   position: absolute;
-  top: 50%;
-  left: 100%;
-  -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -80%) rotateZ(-90deg);
+          transform: translate(-50%, -80%) rotateZ(-90deg);
   border-radius: 32px;
 }
 
@@ -498,5 +514,14 @@ form .form-sect .sect-head h2 {
 
 .section-indicator .indicator:hover {
   opacity: 0.3 !important;
+}
+
+@media screen and (min-width: 600px) {
+  .section-indicator {
+    top: 50%;
+    left: 100%;
+    -webkit-transform: translate(50%, -50%);
+            transform: translate(50%, -50%);
+  }
 }
 /*# sourceMappingURL=style.css.map */
