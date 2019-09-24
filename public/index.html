@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recruit Form | Alphas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontstyle.css">
+</head>
+<body>
+    <div class="main">
+        <div class="page-header">
+            <!-- <div id="particles-js"></div> -->
+                <svg>
+                    <circle r="10" cx="60" cy="80"></circle>
+                    <rect x="600" y="200"></rect>
+                    <circle r="10" cx="100" cy="300"></circle>
+                    <rect x="400" y="100"></rect>
+                    <circle r="10" cx="820" cy="20"></circle>
+                    <rect x="1200" y="100"></rect>
+                    <!-- <poly></poly> -->
+                </svg>
+                <div class="content-cont">
+                    <div class="content"></div>
+                </div>
+        </div>
+            
+        <form id="form" action="/recruits" method="post" autocomplete="off" data-netlify="true">
+            <div class="form">
+                <div class="content-wrapper">
+
+                    <div class="sect-wrapper">
+                        <div class="form-sect nom">
+                            <div class="sect-head">
+                                <h2>How do we address you?</h2>
+                            </div>
+                            <div class="form-cont title">
+                                <input type="text" name="title" id="title" required >
+                                <label class="text" for="title"><span class="label"> Title </span></label>
+                            </div>
+                            <div class="names">
+                
+                                <div class="form-cont fname">
+                                    <input type="text" name="fname" id="fname" required >
+                                    <label class="text" for="fname"><span class="label"> First Name </span></label>
+                                </div>
+                                <div class="form-cont lname">
+                                    <input type="text" name="lname" id="lname" required>
+                                    <label class="text" for="lname"><span class="label"> Last Name </span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="sect-wrapper">
+                        <div class="form-sect dept">
+                            <div class="sect-head">
+                                    <h2>What's your area of interest?</h2>
+                            </div>
+                            <div class="depts">
+                                <div class="form-cont dept-options">
+    
+                                    <input type="radio" name="options" id="web"  >
+                                    <label class="radio" for="web"><span class="rlabel">Web Design and Development</span></label>
+                                    
+                                    <input type="radio" name="options" id="cs" >
+                                    <label class="radio" for="cs"><span class="rlabel">Cyber Security</span></label>
+                                
+                                
+                                    <input type="radio" name="options" id="ai">
+                                    <label class="radio" for="ai"><span class="rlabel">Artificial Intelligence</span></label>
+                                
+                                
+                                    <input type="radio" name="options" id="software" >
+                                    <label class="radio" for="software"><span class="rlabel">Software and Development</span></label>
+                                
+    
+                                    <input type="radio" name="options" id="graphics" >
+                                    <label class="radio" for="graphics"><span class="rlabel">Graphics Design</span></label>
+                                
+                                </div>
+                            </div>            
+                        </div>
+                    </div>    
+        
+                    <div class="sect-wrapper">
+                        <div class="form-sect level">
+                            <div class="sect-head">
+                                    <h2>What's your level?</h2>
+                            </div>
+        
+                            <div class="form-cont levels">
+                                <div>
+                                    <input type="radio" name="level" id="beginner">
+                                    <label class="lradio" for="beginner"> <span> Beginner</span></label>
+                                    <input type="radio" name="level" id="intermediate">
+                                    <label class="lradio" for="intermediate"> <span>Intermediate</span></label>
+                                    <input type="radio" name="level" id="expert">
+                                    <label class="lradio" for="expert"> <span>Expert</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="sect-wrapper">
+                        <div class="form-sect workinfo">
+                            <div class="sect-head">
+                                <h2>Let's know more about you?</h2>
+                            </div>
+                            <div class="infos">
+
+                                <div class="column _1">
+                                    <div class="form-cont prev-work">
+                                        <input type="text" name="workPlace" id="workPlace" required >
+                                        <label class="text" for="workPlace"><span class="label">Worked at?</span></label>
+                                    </div>
+
+                                    <div class="form-cont prog-lang">
+                                        <input list="Languages" type="text" name="lang" id="lang" required>
+                                        <label class="text" for="lang"><span class="label">Main language</span></label>
+                                        <datalist id="Languages">
+                                            <option value="JavaScript">JS</option>
+                                            <option value="Python">Python</option>
+                                            <option value="C++">C++</option>
+                                            <option value="C#">C#</option>
+                                        </datalist>
+                                    </div>
+                                </div>
+                
+                                <div class="column _2">
+                                    <div class="form-cont prev-workTitle">
+                                        <input type="text" name="workTitle" id="workTitle" required >
+                                        <label class="text" for="workTitle"><span class="label">Job title</span></label>
+                                    </div>
+        
+                                    <div class="form-cont hobby">
+                                        <input type="text" name="hobby" id="hobby" required>
+                                        <label class="text" for="hobby"><span class="label">Hobby</span></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>   
+                    </div>  
+            
+                </div>
+        
+            </div>
+            <div class="blinds"></div>
+            <div class="controls-cont blue-shadow">
+                <button type="button" id="prev">
+                    <svg class=" prev"><polyline class="polyline" points="3 5.7, 12 5.7, 8.5 2.2, 8.5 2.2, 12 5.7, 8.5 9.5"></polyline></svg>
+                </button>
+                <button type="button" id="next">
+                    <svg class="next"><polyline class="polyline" points="3 5.7, 12 5.7, 8.5 2.2, 8.5 2.2, 12 5.7, 8.5 9.5"></polyline></svg>
+                </button>
+            </div>
+            <div class="controls-cont submit blue-shadow">
+                <input id="submit-btn" value="Submit" type="submit" />
+            </div>
+            <div id="sect-ind" class="section-indicator">
+                <!-- stuff here -->
+            </div>        
+        </form>
+
+    </div>
+
+    <script src="js/lib/particles.min.js"></script>
+    <script src="./js/anime.min.js"></script>
+    <script src="js/script.js"></script>
+<!--
+<script src="js/TweenMax.min.js"></script>
+-->
+<!--
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+-->
+</body>
+</html>

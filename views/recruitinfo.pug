@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    .container.margin-top
+        .header
+            h1.caps #{recruit.title} #{recruit.fname} #{recruit.lname}
+            h5 Details
+        .cont
+            ul.list-group.caps
+
+                //- each recruitData, i in recruit
+                li.list-group-item.var-data-cont
+                    span.variable Title
+                    span.data #{recruit.title}
+                li.list-group-item.var-data-cont
+                    span.variable First Name
+                    span.data #{recruit.fname}
+                li.list-group-item.var-data-cont
+                    span.variable Last Name
+                    span.data #{recruit.lname}
+                li.list-group-item.var-data-cont
+                    span.variable Options
+                    span.data #{recruit.options}
+
+        a.btn.btn-default(href = "edit/" + recruit._id) Edit

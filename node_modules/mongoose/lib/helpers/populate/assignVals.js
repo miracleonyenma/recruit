@@ -16,6 +16,7 @@ module.exports = function assignVals(o) {
   const populateOptions = Object.assign({}, o.options, userOptions, {
     justOne: o.justOne
   });
+  populateOptions.$nullIfNotFound = o.isVirtual;
 
   const originalIds = [].concat(o.rawIds);
 
@@ -118,6 +119,11 @@ module.exports = function assignVals(o) {
 
 function numDocs(v) {
   if (Array.isArray(v)) {
+    // If setting underneath an array of populated subdocs, we may have an
+    // array of arrays. See gh-7573
+    if (v.some(el => Array.isArray(el))) {
+      return v.map(el => numDocs(el));
+    }
     return v.length;
   }
   return v == null ? 0 : 1;
@@ -195,7 +201,7 @@ function valueFilter(val, assignmentOpts, populateOptions) {
 
 function maybeRemoveId(subdoc, assignmentOpts) {
   if (assignmentOpts.excludeId) {
-    if (typeof subdoc.setValue === 'function') {
+    if (typeof subdoc.$__setValue === 'function') {
       delete subdoc._doc._id;
     } else {
       delete subdoc._id;

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    .container.margin-top
+        .header
+            h1.caps Recruits
+        div.cont
+            ul.list-group
+                each recruit, i in recruitInfo
+                    li.list-group-item
+                        p.caps= recruit.fname
+                        a.caps(href="/recruitinfo/"+recruit._id) view
