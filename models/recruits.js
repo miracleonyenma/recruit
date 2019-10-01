@@ -14,7 +14,7 @@ let recruitSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    options:{
+    dept:{
         type: String,
         required: true
     },
@@ -31,6 +31,10 @@ let recruitSchema = mongoose.Schema({
         required: true
     },
     hobby:{
+        type: String,
+        required: true
+    },
+    lang:{
         type: String,
         required: true
     }

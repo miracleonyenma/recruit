@@ -1,0 +1,61 @@
+extends layout
+
+block content
+    .container.margin-top
+        .header
+            h1.caps #{recruit.title} #{recruit.fname} #{recruit.lname}
+            h5 Details
+        .form-cont
+            form(action="/recruitinfo/edit/"+recruit._id, method="post" autocomplete="off" data-netlify="true" id="edit-form")
+                .names.sect
+                    .sect-block
+                        input(type="text" name="title" id="title" value=recruit.title required)
+                        label(for="title")
+                            span Title
+                    .sect-block
+                        input(type="text" name="fname" id="fname" value=recruit.fname required)
+                        label(for="fname")
+                            span First Name
+                    .sect-block
+                        input(type="text" name="lname" id="lname" value=recruit.lname required)
+                        label(for="lname")
+                            span Last Name
+
+                .dept.sect
+                    .sect-block
+                        input(type="text" name="dept" id="dept" value=recruit.dept required)
+                        label(for="dept")
+                            span Department
+
+                .level.sect
+                    .sect-block
+                        input(type="text" name="level" id="level" value=recruit.level required)
+                        label(for="level")
+                            span Level
+
+                .workinfo.sect
+                    .sect-block
+                        input(type="text" name="workPlace" id="workPlace" value=recruit.workPlace required)
+                        label(for="workPlace")
+                            span Previous Work
+                    .sect-block
+                        input(type="text" name="workTitle" id="workTitle" value=recruit.workTitle required)
+                        label(for="WorkTitle")
+                            span Job Title
+                    .sect-block
+                        input(list="Languages" type="text" name="lang" id="lang" value=recruit.lang required)
+                        //- datalist(id="Languages")
+                        //-     option(value="JavaScript") JS
+                        //-     option(value="Python") Python
+                        //-     option(value="C++") C++
+                        //-     option(value="C#") C#           
+                        label(for="lname")
+                            span Programming language
+
+                    .sect-block
+                        input(type="text" name="hobby" id="hobby" value=recruit.hobby required)
+                        label(for="hobby")
+                            span Hobby
+
+                div.actions-sect
+                    input.btn.btn-default(type="submit", value="Submit")

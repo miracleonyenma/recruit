@@ -4,6 +4,26 @@
 //consider making the buttons increasing or reducing the position by incrementing or decrementing -bad english-
 //the value of `pos` and running a function that changes the position according to the value of `pos`
 //same thing for your indicators
+// $(document).ready(function(){
+//     $('#submit-btn').on('click', function(e){
+//         console.log("heyheyhey");
+//         $.ajax({
+//             type: 'POST',
+//             url: '/recruits',
+//             headers : {
+//             'Content-Type' : 'application/json'
+//             },
+//             data :  JSON.stringify(obj),
+//             success: function(response){
+//                 alert('sending'); 
+//                 window.location.href = '/recruits';
+//             },
+//             error: function(err){
+//                 console.log(err);
+//             }
+//         });
+//     });
+// });
 
 var sections = document.querySelectorAll(".sect-wrapper"),
     submitBtn = document.querySelector("#submit-btn"),
@@ -12,6 +32,7 @@ var sections = document.querySelectorAll(".sect-wrapper"),
     cntwrpr = document.querySelector(".content-wrapper"),
     form = document.querySelector("#form"),
     inputs = document.querySelectorAll("input"),
+    dept_options = document.querySelectorAll(".dept-options input"),
     indicator_cont = document.querySelector("#sect-ind"),
     allBtns = document.querySelectorAll("button"),
     styles = document.documentElement.style, 
@@ -29,6 +50,7 @@ var sections = document.querySelectorAll(".sect-wrapper"),
     count = sections.length,
     displacement,
     x,
+    checked = [],
     obj = [];
     
 function getSetContHeight(){
@@ -304,6 +326,14 @@ function hideSubmitBtn(){
 //     };
 // }
 
+function checkLimiter(){
+    var max = 1;
+    // for(x=0; x<dept_options.length; x++){
+        // checked[x] = dept_options[x].checked;
+        // if(dept_options:checked == true)
+    // };
+};
+
 var obj = {},
     textObj = {},
     radioObj = {},
@@ -339,15 +369,24 @@ function submitAction(){
         obj = Object.assign(textObj, radioObj);
     };
 
-    // req = {
-    //     method : 'POST',
-    //     url : 'localhost:3000/recruits',
-    //     headers : {
-    //         'Content-Type' : 'application/json'
-    //     },
-    //     data : JSON.stringify(obj) 
-    // };
 };
+
+$(document).ready(function(){
+    $('#submit-btn').on('click', function(e){
+        console.log("heyheyhey");
+        $.post(
+            '/recruits',
+            // {
+            // 'Content-Type' : 'application/json'
+            // },
+            JSON.stringify(obj),
+            function(data, status){
+                alert("Data: " + data + "\nStatus: " + status);
+            }
+        );
+    });
+});
+
 
 function setCookie(name, value, expiry){
     var d = new Date();
@@ -362,6 +401,9 @@ submitBtn.addEventListener("click", submitAction);
 window.addEventListener("load", resetState);
 window.addEventListener("resize", getSetContHeight);
 window.addEventListener("load", setIndicators);
+for(x=0; x < dept_options.length; x++){
+    dept_options[x].addEventListener("click", checkLimiter);
+};
 // for(count = 0; count <= allBtns.length; count++){
 //     // allBtns[count].addEventListener("click", indicate);
 // };

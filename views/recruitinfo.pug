@@ -10,16 +10,33 @@ block content
 
                 //- each recruitData, i in recruit
                 li.list-group-item.var-data-cont
-                    span.variable Title
-                    span.data #{recruit.title}
+                    div.variable Title
+                    div.data #{recruit.title}
                 li.list-group-item.var-data-cont
-                    span.variable First Name
-                    span.data #{recruit.fname}
+                    div.variable First Name
+                    div.data #{recruit.fname}
                 li.list-group-item.var-data-cont
-                    span.variable Last Name
-                    span.data #{recruit.lname}
+                    div.variable Last Name
+                    div.data #{recruit.lname}
                 li.list-group-item.var-data-cont
-                    span.variable Options
-                    span.data #{recruit.options}
+                    div.variable Dept
+                    div.data #{recruit.dept}
+                li.list-group-item.var-data-cont
+                    div.variable Level
+                    div.data #{recruit.level}
+                li.list-group-item.var-data-cont
+                    div.variable Work place
+                    div.data #{recruit.workPlace}
+                li.list-group-item.var-data-cont
+                    div.variable Work title
+                    div.data #{recruit.workTitle}
+                li.list-group-item.var-data-cont
+                    div.variable Language
+                    div.data #{recruit.lang}
+                li.list-group-item.var-data-cont
+                    div.variable Hobby
+                    div.data #{recruit.hobby}
 
-        a.btn.btn-default(href = "edit/" + recruit._id) Edit
+        div.actions-sect
+            a.btn.btn-default(href = "edit/" + recruit._id) Edit
+            a.btn.btn-default(id="delete", data-id=recruit._id) Delete
