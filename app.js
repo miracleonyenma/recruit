@@ -124,6 +124,9 @@ app.post('/recruits', function(req, res){
     recruit.workPlace = req.body.workPlace;
     recruit.lang = req.body.lang;
     recruit.hobby = req.body.hobby;
+    recruit.number = req.body.number;
+    recruit.mail = req.body.mail;
+
 
 
     recruit.save(function(err){
@@ -164,6 +167,8 @@ app.post('/recruitinfo/edit/:id', function(req, res){
     recruit.workPlace = req.body.workPlace;
     recruit.lang = req.body.lang;
     recruit.hobby = req.body.hobby;
+    recruit.number = req.body.number;
+    recruit.mail = req.body.mail;
 
     let query = {_id:req.params.id}
 

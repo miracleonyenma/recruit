@@ -395,6 +395,18 @@ function setCookie(name, value, expiry){
     document.cookie = name + "=" + value + ";" + expires + ";" + "path=/";
 };
 
+document.addEventListener("keydown", function(e){
+    if(e.keyCode == 37){
+        prevStep();
+    }
+    else if(e.keyCode == 39){
+        nextStep();
+    }
+    else{
+        console.log("scam");
+        console.log(e.keyCode);
+    };
+});
 nextBtn.addEventListener("click", nextStep);
 prevBtn.addEventListener("click", prevStep);
 submitBtn.addEventListener("click", submitAction);

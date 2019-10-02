@@ -57,5 +57,15 @@ block content
                         label(for="hobby")
                             span Hobby
 
+                .contact.sect
+                    .sect-block
+                        input(type="tel" name="number" id="number" value=recruit.number required)
+                        label(for="number")
+                            span Phone
+                    .sect-block
+                        input(type="email" name="mail" id="mail" value=recruit.mail required)
+                        label(for="mail")
+                            span Email
+
                 div.actions-sect
                     input.btn.btn-default(type="submit", value="Submit")

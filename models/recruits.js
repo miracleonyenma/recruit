@@ -37,7 +37,16 @@ let recruitSchema = mongoose.Schema({
     lang:{
         type: String,
         required: true
+    },
+    number:{
+        type: String,
+        required: true
+    },
+    mail:{
+        type: String,
+        required: true
     }
+
 });
 
 let Recruits = module.exports = mongoose.model('Recruits', recruitSchema);
