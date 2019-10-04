@@ -51,6 +51,7 @@ var sections = document.querySelectorAll(".sect-wrapper"),
     displacement,
     x,
     checked = [],
+    err = null,
     obj = [];
     
 function getSetContHeight(){
