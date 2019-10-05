@@ -103,22 +103,22 @@ function displayPage(){
 
 }
 
-function smoothScroll(target, duration){
-    var target = document.querySelector(target);
-    var targetPos = target.getBoundingClientRect().top;
-    var startPos = window.pageYOffset;
-    var distance = targetPos - startPos;
-    var startTime = null;
+// function smoothScroll(target, duration){
+//     var target = document.querySelector(target);
+//     var targetPos = target.getBoundingClientRect().top;
+//     var startPos = window.pageYOffset;
+//     var distance = targetPos - startPos;
+//     var startTime = null;
 
-    function animation(currentTime){
-        if(startTime === null) startTime = currentTime;
-        var timeElapsed = currentTime - startTime;
-    } 
+//     function animation(currentTime){
+//         if(startTime === null) startTime = currentTime;
+//         var timeElapsed = currentTime - startTime;
+//     } 
 
-    requestAnimationFrame(animation);
+//     requestAnimationFrame(animation);
 
-    console.log(distance);
-}
+//     console.log(distance);
+// }
 
 smoothScroll("#form", 1000);
     
@@ -440,21 +440,21 @@ function submitAction(){
 
 };
 
-$(document).ready(function(){
-    $('#submit-btn').on('click', function(e){
-        console.log("heyheyhey");
-        $.post(
-            '/recruits',
-            // {
-            // 'Content-Type' : 'application/json'
-            // },
-            JSON.stringify(obj),
-            function(data, status){
-                alert("Data: " + data + "\nStatus: " + status);
-            }
-        );
-    });
-});
+// $(document).ready(function(){
+//     $('#submit-btn').on('click', function(e){
+//         console.log("heyheyhey");
+//         $.post(
+//             '/recruits',
+//             // {
+//             // 'Content-Type' : 'application/json'
+//             // },
+//             JSON.stringify(obj),
+//             function(data, status){
+//                 alert("Data: " + data + "\nStatus: " + status);
+//             }
+//         );
+//     });
+// });
 
 
 function setCookie(name, value, expiry){
