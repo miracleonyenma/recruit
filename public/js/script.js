@@ -120,7 +120,7 @@ function displayPage(){
 //     console.log(distance);
 // }
 
-smoothScroll("#form", 1000);
+// smoothScroll("#form", 1000);
     
 function getSetContHeight(){
     formHeight = window.getComputedStyle(form).height;
