@@ -53,6 +53,74 @@ var sections = document.querySelectorAll(".sect-wrapper"),
     checked = [],
     err = null,
     obj = [];
+
+var loaderCont = document.querySelector("div#loader-cont"),
+    boxCont = document.querySelector(".loader.center"),
+    effectEl = document.querySelector(".effect-element");
+
+var tl = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 650,
+    delay: 500
+});
+
+function displayPage(){
+    // tl.add({
+    //     targets: effectEl,
+    //     scale: 1,
+    //     translateX: "-50%",
+    //     translateY: "-50%",
+    // });
+    tl.add({
+        targets: loaderCont,
+        background: 'rgba(255,255,255, 0)'
+    },"-=100");
+    tl.add({
+        targets: loaderCont,
+        scale: 0,
+    });
+    // tl.add({
+    //     targets: boxCont,
+    //     scale: 2
+    //     // begin: function(){
+    //     //     boxCont.style.display = "none";
+    //     // }
+    // });
+    tl.add({
+        targets: loaderCont,
+        scale: 1
+    });
+    tl.add({
+        targets: loaderCont,
+        opacity: 0
+    }, "-=1000");
+    tl.add({
+        targets: loaderCont,
+        begin: function(){
+        loaderCont.style.display = "none";    
+        }
+    },"-=200");
+
+}
+
+function smoothScroll(target, duration){
+    var target = document.querySelector(target);
+    var targetPos = target.getBoundingClientRect().top;
+    var startPos = window.pageYOffset;
+    var distance = targetPos - startPos;
+    var startTime = null;
+
+    function animation(currentTime){
+        if(startTime === null) startTime = currentTime;
+        var timeElapsed = currentTime - startTime;
+    } 
+
+    requestAnimationFrame(animation);
+
+    console.log(distance);
+}
+
+smoothScroll("#form", 1000);
     
 function getSetContHeight(){
     formHeight = window.getComputedStyle(form).height;
@@ -399,6 +467,13 @@ function setCookie(name, value, expiry){
 document.addEventListener("keydown", function(e){
     if(e.keyCode == 37){
         prevStep();
+        if(prevBtn.disabled === true){
+            document.addEventListener("keydown", function(e){
+                if(e.keyCode == 37){
+                    return false
+                }
+            });            
+        }
     }
     else if(e.keyCode == 39){
         nextStep();
@@ -454,3 +529,5 @@ window.addEventListener("load", function(){
     //get localStorage
     // getInput();
 });
+
+window.addEventListener("load", displayPage);
