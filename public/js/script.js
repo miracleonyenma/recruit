@@ -483,6 +483,48 @@ document.addEventListener("keydown", function(e){
         console.log(e.keyCode);
     };
 });
+
+//smoothScrolls
+
+var links = document.querySelectorAll("a"),
+    linkTarget = [];
+
+
+function smoothScroll(e, dur){
+    var e = document.querySelector(e),
+        ePos = e.getBoundingClientRect().top,
+        startPos = window.pageYOffset,
+        d = ePos,
+        startTime = null;
+        console.table("ePos = " + ePos, "startPos = " + startPos, "d = " + d);
+
+        function animation(currentTime){
+            if(startTime === null) startTime = currentTime;
+            // console.log("startTime = " + startTime);
+            // console.log("currentTime = " + currentTime);
+            var elapsed = currentTime - startTime,
+                run = ease(elapsed, startPos, d, dur);
+            // console.log("elapsed =" + elapsed);
+            window.scrollTo(0, run);
+            if(elapsed < dur) requestAnimationFrame(animation);
+        }
+
+        function ease (t, b, c, d) {
+            t /= d;
+            t--;
+            return c*(t*t*t + 1) + b;
+        };
+
+        requestAnimationFrame(animation);
+};
+
+for(i = 0; i < links.length; i++){
+    links[i].addEventListener("click", function(e){
+        e.preventDefault();
+        smoothScroll(e.target.getAttribute("href"), 1000);
+    });
+ };
+
 nextBtn.addEventListener("click", nextStep);
 prevBtn.addEventListener("click", prevStep);
 submitBtn.addEventListener("click", submitAction);
